@@ -33,3 +33,6 @@ someDefault2();
 for (const c of char2.characters) {
   greet(c);
 }
+
+import { characters as heroes } from "./characters.mjs";
+console.log(heroes);
