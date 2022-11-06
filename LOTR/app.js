@@ -1,4 +1,5 @@
 const { characters, stealRing, showCharacters } = require("./characters.js");
 
-stealRing(characters, "Frodo");
+let myCharacters = characters;
+myCharacters = stealRing(myCharacters, "Bilbo");
 showCharacters();

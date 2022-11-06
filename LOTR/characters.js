@@ -10,7 +10,7 @@ const characters = [
 ];
 
 function stealRing(characters, owner) {
-  characters.map((c) => {
+  return characters.map((c) => {
     if (c.name == owner) {
       c.hasRing = true;
     } else {
