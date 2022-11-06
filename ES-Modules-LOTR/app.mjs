@@ -27,3 +27,9 @@ log();
 for (const c of characters) {
   greet(c);
 }
+
+import someDefault2, * as char2 from "./characters.mjs";
+someDefault2();
+for (const c of char2.characters) {
+  greet(c);
+}
