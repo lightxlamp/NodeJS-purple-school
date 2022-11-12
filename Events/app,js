@@ -39,3 +39,20 @@ console.log("max evet listeners", myEmitter.getMaxListeners());
 console.log('myEmitter.listenerCount("msg")', myEmitter.listenerCount("msg"));
 console.log('myEmitter.listenerCount("off")', myEmitter.listenerCount("off"));
 console.log("myEmitter.listeners", myEmitter.listeners);
+console.log("myEmitter.eventNames", myEmitter.eventNames);
+
+myEmitter.on("error", (err) => {
+  console.log("Some error occured", err.message);
+});
+
+myEmitter.emit("error", new Error("!____ERROR___!"));
+
+//
+const target = new EventTarget();
+
+const logTarget = () => {
+  console.log("Connected to Target");
+};
+
+target.addEventListener("Connected", logTarget);
+target.dispatchEvent(new Event("Connected"));
