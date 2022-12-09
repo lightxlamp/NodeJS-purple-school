@@ -1,16 +1,11 @@
-isDone = false
-const limit = 10000000000;
-function heavy() {
-    for (let i = 0; i <= limit; i++) {
-        if (i === limit) {
-            isDone = true
-        }
-    }
-}
+const { Worker } = require('worker_threads')
 
 const main = () => {
     performance.mark('start')
-    heavy()
+    const worker = new Worker('./app3_my_worker.js')
+    worker.on('message', (data) => {
+        console.log('data', data);
+    })
     performance.mark('end')
     performance.measure('main', 'start', 'end')
     console.log(performance.getEntriesByName('main'));
