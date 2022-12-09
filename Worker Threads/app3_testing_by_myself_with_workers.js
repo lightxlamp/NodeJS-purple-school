@@ -4,7 +4,14 @@ const main = () => {
     performance.mark('start')
     const worker = new Worker('./app3_my_worker.js')
     worker.on('message', (data) => {
+        console.log('worker.threadID', worker.threadId);
         console.log('data', data);
+    })
+    worker.on('error', (err) => {
+        console.log('err', err);
+    })
+    worker.on('exit', () => {
+        console.log('Work completed');
     })
     performance.mark('end')
     performance.measure('main', 'start', 'end')
